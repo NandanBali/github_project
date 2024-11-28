@@ -93,7 +93,7 @@ class _RepositoryViewState extends State<RepositoryView> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child:
-                                Text(widget.repository.misc_details["description"]),
+                                Text(widget.repository.misc_details["description"] == null ? "" : widget.repository.misc_details["description"]),
                           ),
                         ),
                         const SizedBox(
