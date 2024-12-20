@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:github_plus_plus/components/info_page_topbar.dart';
 import 'package:github_plus_plus/components/standard_card.dart';
 import 'package:github_plus_plus/controller/github_data_controller.dart';
-import 'package:github_plus_plus/globals.dart' as globals;
 import 'package:github_plus_plus/models/gh_repository.dart';
 import 'package:github_plus_plus/view/file/file_view.dart';
 import 'package:logger/logger.dart';
@@ -46,7 +45,7 @@ class _FilesViewState extends State<FilesView> {
         children: [
           InfoPageTopbar(title: "Files",),
           SizedBox(height: 16.0, width: 24.0,),
-          FutureBuilder(future: GithubDataController(authToken: globals.github_creds).fetchRepositoryFiles(widget.repository), builder: (context, snapshot) {
+          FutureBuilder(future: GithubDataController().fetchRepositoryFiles(widget.repository), builder: (context, snapshot) {
             if(snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
               return Expanded(
                 child: ListView(

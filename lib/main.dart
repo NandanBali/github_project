@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:github_plus_plus/view/welcome/welcome_view.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {

@@ -8,15 +8,13 @@ import 'package:logger/logger.dart';
 
 class GithubDataController {
 
-  final String authToken;
   late Map<String, String> stdHeaders;
 
   var logger = Logger();
 
-  GithubDataController({required this.authToken}) {
+  GithubDataController() {
     this.stdHeaders = {
       "Accept": "application/vnd.github+json",
-      "Authorization": "Bearer ${authToken}",
       "X-GitHub-Api-Version": "2022-11-28",
     };
   }
@@ -26,11 +24,8 @@ class GithubDataController {
 
     http.Response response = await http.get(
         Uri.parse("https://api.github.com/search/users?q=${searchQuery}"),
-        headers: {
-          "Accept": "application/vnd.github+json",
-          "Authorization": "Bearer ${authToken}",
-          "X-GitHub-Api-Version": "2022-11-28",
-        });
+        headers: this.stdHeaders
+    );
     print(response.body);
     var resBody = jsonDecode(response.body);
     if (response.statusCode == 200) {
@@ -91,7 +86,6 @@ class GithubDataController {
       Uri.parse("https://api.github.com/repos/${repo.owner.name}/${repo.name}/readme"),
       headers: {
         "Accept": "application/vnd.github.html+json",
-        "Authorization": "Bearer ${authToken}",
         "X-GitHub-Api-Version": "2022-11-28",
       },
     );
@@ -131,7 +125,6 @@ class GithubDataController {
       Uri.parse(fileURL),
       headers: {
         "Accept": "application/vnd.github.html+json",
-        "Authorization": "Bearer ${authToken}",
         "X-GitHub-Api-Version": "2022-11-28",
       },
     );

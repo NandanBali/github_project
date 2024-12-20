@@ -7,7 +7,6 @@ import 'package:github_plus_plus/components/standard_card_2.dart';
 import 'package:github_plus_plus/controller/github_data_controller.dart';
 import 'package:github_plus_plus/helper_functions.dart';
 import 'package:github_plus_plus/models/gh_repository.dart';
-import 'package:github_plus_plus/globals.dart' as globals;
 import 'package:github_plus_plus/view/repository/files_view.dart';
 import 'package:github_plus_plus/view/user/user_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -164,7 +163,7 @@ class _RepositoryViewState extends State<RepositoryView> {
                           routeDestination:
                               FilesView(repository: widget.repository)),
                       FutureBuilder(
-                        future: GithubDataController(authToken: globals.github_creds).getRepositoryReadme(widget.repository),
+                        future: GithubDataController().getRepositoryReadme(widget.repository),
                         builder: (context, snapshot) {
                           if(snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
                             return StdCardNoPush(
@@ -206,3 +205,4 @@ class _RepositoryViewState extends State<RepositoryView> {
     );
   }
 }
+

@@ -16,5 +16,4 @@ class GHRepository {
     misc_details["watchers"] = decodedResponse["watchers_count"];
     misc_details["loc"] = decodedResponse["size"];
   }
-
 }

@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:github_plus_plus/components/info_page_topbar.dart';
 import 'package:github_plus_plus/components/standard_card_2.dart';
 import 'package:github_plus_plus/controller/github_data_controller.dart';
-import 'package:github_plus_plus/globals.dart' as globals;
 
 class FileView extends StatefulWidget {
   final String url;
@@ -23,7 +21,7 @@ class _FileViewState extends State<FileView> {
         children: [
           InfoPageTopbar(title: "${widget.fileName}",),
           Container(
-            child: FutureBuilder(future: GithubDataController(authToken: globals.github_creds).fetchFile(widget.url), builder: (context, snapshot) {
+            child: FutureBuilder(future: GithubDataController().fetchFile(widget.url), builder: (context, snapshot) {
               if(snapshot.connectionState == ConnectionState.done && snapshot.hasData!) {
                 return Expanded(child: ListView(
                   children: [

@@ -4,7 +4,6 @@ import 'package:github_plus_plus/components/standard_card.dart';
 import 'package:github_plus_plus/controller/github_data_controller.dart';
 import 'package:github_plus_plus/models/gh_repository.dart';
 import 'package:github_plus_plus/models/gh_user.dart';
-import 'package:github_plus_plus/globals.dart' as globals;
 import 'package:github_plus_plus/view/repository/repository_view.dart';
 
 class UserView extends StatefulWidget {
@@ -180,7 +179,7 @@ class _UserViewState extends State<UserView> {
                   ),
                   FutureBuilder(
                       future:
-                          GithubDataController(authToken: globals.github_creds)
+                          GithubDataController()
                               .fetchUserRepositories(widget.user),
                       builder: (context, snapshot) {
                         if(snapshot.connectionState == ConnectionState.done && snapshot.data != null) {

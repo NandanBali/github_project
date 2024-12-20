@@ -44,13 +44,13 @@ class _SearchViewState extends State<SearchView> {
   List<Widget> _generateList() {
     List<Widget> l = [];
 
-    l.add(ListTile(
-      leading: const Icon(Icons.code),
-      title: Text("Code with ${_controller.text.toString()}"),
-      onTap: () {
-
-      },
-    ));
+    // l.add(ListTile(
+    //   leading: const Icon(Icons.code),
+    //   title: Text("Code with ${_controller.text.toString()}"),
+    //   onTap: () {
+    //
+    //   },
+    // ));
     l.add(ListTile(
       leading: const Icon(Icons.book),
       title: Text("Repositories with ${_controller.text.toString()}"),
@@ -61,11 +61,11 @@ class _SearchViewState extends State<SearchView> {
                 ReposResultsView(query: _controller.text.toString())));
       },
     ));
-    l.add(ListTile(
-      leading: const Icon(Icons.error),
-      title: Text("Issues with ${_controller.text.toString()}"),
-      onTap: () {},
-    ));
+    // l.add(ListTile(
+    //   leading: const Icon(Icons.error),
+    //   title: Text("Issues with ${_controller.text.toString()}"),
+    //   onTap: () {},
+    // ));
     l.add(ListTile(
       leading: const Icon(Icons.person),
       title: Text("People with ${_controller.text.toString()}"),

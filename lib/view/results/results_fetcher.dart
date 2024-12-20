@@ -140,7 +140,7 @@ class ResultsFetcher {
   Future<List<Widget>> getUserResultWidgets(String searchQuery) async {
     List<Widget> l = [];
     for (GHUser ghUser
-        in await GithubDataController(authToken: globals.github_creds)
+        in await GithubDataController()
             .searchUsers(searchQuery: searchQuery) as List<GHUser>) {
       print(ghUser.handle);
 
@@ -152,7 +152,7 @@ class ResultsFetcher {
   Future<List<Widget>> getReposResultWidgets(String searchQuery) async {
     List<Widget> l = [];
     for (GHRepository ghRepository
-        in await GithubDataController(authToken: globals.github_creds)
+        in await GithubDataController()
                 .searchRepositories(searchQuery: searchQuery)
             as List<GHRepository>) {
       l.add(_generateRepoResultWidget(ghRepository));
